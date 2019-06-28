@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       validate: {
         isEmail: {
-          msg: 'Invalid email address'
+          msg: 'Invalid email address' 
         }
       }
     },
@@ -40,7 +40,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
   user.associate = function(models) {
-    // associations can be defined here
+    // associations can be defined here.
+    // one to many relationship where each user has picks.
   };
   user.prototype.validPassword = function(passwordTyped){
     return bcrypt.compareSync(passwordTyped, this.password);
